@@ -16,5 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// anggota
 Route::post('register', 'Usercontroller@register');
 Route::post('login', 'Usercontroller@login');
+Route::post('simpan','anggotacontroller@aku')->middleware('jwt.verify');
+Route::post('update/{id}','anggotacontroller@update')->middleware('jwt.verify');
+Route::post('delete/{id}','anggotacontroller@destroy')->middleware('jwt.verify');
+Route::get('show','anggotacontroller@show')->middleware('jwt.verify');
+//buku
+Route::post('tambah','bukucontroller@tambah')->middleware('jwt.verify');
+Route::post('updatebuku/{id}','bukucontroller@update')->middleware('jwt.verify');
+Route::post('deletebuku/{id}','bukucontroller@destroy')->middleware('jwt.verify');
+Route::get('showw','bukucontroller@show')->middleware('jwt.verify');
