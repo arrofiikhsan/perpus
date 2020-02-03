@@ -28,3 +28,6 @@ Route::post('tambah','bukucontroller@tambah')->middleware('jwt.verify');
 Route::post('updatebuku/{id}','bukucontroller@update')->middleware('jwt.verify');
 Route::post('deletebuku/{id}','bukucontroller@destroy')->middleware('jwt.verify');
 Route::get('showw','bukucontroller@show')->middleware('jwt.verify');
+Route::post('insert','peminjamancontroller@peminjaman')->middleware('jwt.verify');
+Route::post('insertdetail','detailcontrolle@detail')->middleware('jwt.verify');
+Route::get('show{id}','peminjamancontroller@show')->middleware('jwt.verify');
